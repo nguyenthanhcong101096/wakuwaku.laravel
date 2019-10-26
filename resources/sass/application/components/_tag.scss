@@ -1,0 +1,13 @@
+.tag {
+  @include list-group-horizontal('&__item', 8px);
+  font-size: 0;
+
+  &__item {
+    @include font-sm();
+    border-radius: 8px;
+    margin-top: 4px;
+    border: solid 1px $color-gray-500;
+    padding: 6px 12px;
+    display: inline-block;
+  }
+}

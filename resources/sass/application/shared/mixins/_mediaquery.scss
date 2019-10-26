@@ -1,0 +1,46 @@
+@function breakpoint-next($key, $breakpoints: $breakpoints) {
+  $breakpoint-keys: map-keys($breakpoints);
+  $i: index($breakpoint-keys, $key);
+  @return if($i != null and $i < length($breakpoint-keys), nth($breakpoint-keys, $i + 1), null);
+}
+
+@function breakpoint-min($key, $breakpoints: $breakpoints) {
+  $min: map-get($breakpoints, $key);
+  @return if($min != 0, $min, null);
+}
+
+@function breakpoint-max($key, $breakpoints: $breakpoints) {
+  $next: breakpoint-next($key, $breakpoints);
+  @return if($next, breakpoint-min($next, $breakpoints) - .02, null);
+}
+
+@mixin respond-from($key) {
+  $min: breakpoint-min($key);
+
+  @if $min {
+    @media (min-width: $min) {
+      @content;
+    }
+  } @else {
+    @content;
+  }
+}
+
+@mixin respond-only($key, $breakpoints: $breakpoints) {
+  $min: breakpoint-min($key, $breakpoints);
+  $max: breakpoint-max($key, $breakpoints);
+  
+  @if $min != null and $max != null  {
+    @media (min-width: $min) and (max-width: $max) {
+      @content;
+    }
+  } @else if $max == null {
+    @media (min-width: $min) {
+      @content;
+    }
+  } @else if $min == null {
+    @media (max-width: $max) {
+      @content;
+    }
+  }
+}

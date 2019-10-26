@@ -1,0 +1,175 @@
+.u-text-tertiary {
+  @include font-tertiary();
+}
+
+.u-text-sm {
+  @include font-sm();
+}
+
+.u-text-xs {
+  @include font-xs();
+}
+
+.u-bg-red-200 {
+  background-color: $color-red-200;
+}
+
+.u-text-notice {
+  color: $color-red-500;
+}
+
+.u-text-gray-800 {
+  color: $color-gray-800;
+}
+
+.u-text-gray-700 {
+  color: $color-gray-700;
+}
+
+.u-text-red-500 {
+  color: $color-red-500;
+}
+
+.u-text-center {
+  text-align: center;
+}
+
+.u-text-center-md {
+  @include respond-from(md) {
+    text-align: center;
+  }
+}
+
+.u-text-bold {
+  font-weight: bold;
+}
+
+.u-text-wrap {
+  word-wrap: break-word;
+}
+
+.u-w-full {
+  width: 100%;
+}
+
+.u-vertical-middle {
+  vertical-align: middle;
+}
+
+.u-hidden,
+.hidden {
+  display: none !important;
+}
+
+.u-hidden-xs {
+  @include respond-only(xs) {
+    display: none;
+  }
+}
+
+.u-hidden-pc {
+  @include respond-from(md) {
+    display: none !important;
+  }
+}
+
+.u-hidden-mb {
+  display: none;
+
+  @include respond-from(md) {
+    display: block;
+  }
+}
+
+.u-hidden-tablet {
+  @include respond-from(lg) {
+    display: none;
+  }
+}
+
+.u-d-block {
+  display: block !important;
+}
+
+.u-d-inline {
+  display: inline !important;
+}
+
+.u-d-inline-block {
+  display: inline-block !important;
+}
+
+.u-d-flex {
+  display: flex;
+}
+
+.u-align-center {
+  align-items: center;
+}
+
+.u-justify-space-around {
+  justify-content: space-around;
+}
+
+.u-mb-4 {
+  margin-bottom: 4px;
+}
+
+.u-mb-8 {
+  margin-bottom: 8px;
+}
+
+.u-mb-16 {
+  margin-bottom: 16px;
+}
+
+.u-mb-24 {
+  margin-bottom: 24px;
+}
+
+.u-mb-32 {
+  margin-bottom: 32px;
+}
+
+.u-mt-4 {
+  margin-top: 4px;
+}
+
+.u-mt-8 {
+  margin-top: 8px;
+}
+
+.u-mt-16 {
+  margin-top: 16px;
+}
+
+.u-mt-32 {
+  margin-top: 32px;
+}
+
+.u-mt-40 {
+  margin-top: 40px;
+}
+
+.u-ml-16 {
+  margin-left: 16px;
+}
+
+.u-ml-4 {
+  margin-left: 4px;
+}
+
+.u-py-40 {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+.u-no-padding-top {
+  padding-top: 0 !important;
+}
+
+.clearfix::after {
+  content: '';
+  clear: both;
+  display: table;
+}

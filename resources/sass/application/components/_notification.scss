@@ -1,0 +1,29 @@
+.notification {
+  position: relative;
+
+  .noti-badge {
+    @include x-centered();
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background-color: $color-red-500;
+    display: block;
+  }
+}
+
+.notification-list {
+  &__item {
+    padding: 16px;
+    border-radius: 8px;
+
+    @include respond-from(md) {
+      &:hover {
+        background-color: $color-gray-200;
+      }
+    }
+
+    &.is-unread {
+      background-color: $color-red-200;
+    }
+  }
+}

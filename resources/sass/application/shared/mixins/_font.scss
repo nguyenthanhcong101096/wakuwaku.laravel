@@ -1,0 +1,51 @@
+@mixin font-format($font-size, $font-weight, $line-height, $letter-spacing) {
+  font-size: $font-size;
+  font-weight: $font-weight;
+  line-height: $line-height;
+  letter-spacing: $letter-spacing;
+}
+
+@mixin font-headline--xl() {
+  @include font-format(28px, 700, 1.25, -.4px);
+}
+
+@mixin font-headline--lg() {
+  @include font-format(24px, 700, 1.25, -.4px);
+}
+
+@mixin font-headline--md() {
+  @include font-format(20px, 600, 1.25, -.5px);
+}
+
+@mixin font-headline--sm() {
+  @include font-format(16px, 600, 1.25, -.2px);
+}
+
+@mixin font-headline--xs() {
+  @include font-format(14px, 600, 1.286, null);
+}
+
+@mixin font-headline--xxs() {
+  @include font-format(12px, 600, 1.167, null);
+}
+
+@mixin font-lg() {
+  @include font-format($font-size-lg, null, 1.5, -.25px);
+}
+
+@mixin font-base() { // Text 400
+  @include font-format($font-size-base, null, $line-height-base, -.25px);
+}
+
+@mixin font-sm() { // Text 300
+  @include font-format($font-size-sm, null, 1.429, -.22px);
+}
+
+@mixin font-xs() {
+  @include font-format($font-size-xs, null, 1, null);
+}
+
+@mixin font-tertiary() {
+  @include font-format($font-size-xs, null, 1.167, null);
+  color: $color-gray-700;
+}

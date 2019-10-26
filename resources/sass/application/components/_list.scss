@@ -1,0 +1,31 @@
+.list--inline {
+  font-size: 0;
+
+  li {
+    display: inline-block;
+  }
+}
+
+.list-scroll-wrapper {
+  overflow-x: auto;
+}
+
+.list-scroll {
+  @include list-group-horizontal('&__item', 16px);
+  min-width: 470px;
+
+  @include respond-from(md) {
+    @include list-group-horizontal('&__item', 32px);
+    text-align: center;
+  }
+
+  &__link {
+    @include font-headline--md();
+  }
+
+  &__item {
+    &.is-active {
+      color: $color-red-500;
+    }
+  }
+}

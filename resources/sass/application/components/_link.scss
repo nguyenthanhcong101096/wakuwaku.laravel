@@ -1,0 +1,4 @@
+.link--dark {
+  @include font-format(14px, 600, 1.43, normal);
+  color: $color-gray-900;
+}

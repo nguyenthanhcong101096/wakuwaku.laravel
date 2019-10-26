@@ -1,0 +1,128 @@
+.tile {
+  &__icon {
+    border-radius: 50%;
+    vertical-align: middle;
+  }
+
+  &__badge {
+    @include font-sm();
+    display: inline-block;
+    border-radius: 8px;
+    padding: 2px 8px;
+    background-color: $color-gray-400;
+  }
+
+  &__bio {
+    font-size: 14px;
+    color: $color-gray-800;
+    line-height: 1.29;
+  }
+
+  &__title {
+    word-break: break-all;
+  }
+
+  &--xs {
+    .tile__icon {
+      min-width: 24px;
+      height: 24px;
+
+      @include respond-from(md) {
+        min-width: 32px;
+        height: 32px;
+      }
+    }
+  }
+
+  &--sm {
+    .tile__icon {
+      min-width: 48px;
+      width: 48px;
+      height: 48px;
+
+      @include respond-from(md) {
+        min-width: 64px;
+        width: 64px;
+        height: 64px;
+      }
+    }
+
+    .tile__title {
+      @include font-headline--sm();
+
+      @include respond-from(md) {
+        @include font-headline--md();
+      }
+    }
+  }
+
+  &--md {
+    .tile__icon {
+      min-width: 40px;
+      width: 40px;
+      height: 40px;
+      margin-right: 8px;
+    }
+
+    .tile__title {
+      @include font-headline--sm();
+    }
+  }
+
+  &--lg {
+    .tile__icon {
+      min-width: 120px;
+      height: 120px;
+    }
+
+    .tile__title {
+      @include font-headline--lg();
+    }
+  }
+
+  &--horizontal {
+    @include flexbox(flex-start, center);
+
+    &.is-straight {
+      align-items: flex-start;
+    }
+
+    &:not(.tile--md) .tile__icon {
+      margin-right: 16px;
+    }
+  }
+
+  &--vertical {
+    text-align: center;
+
+    .tile__icon {
+      margin-bottom: 24px;
+    }
+  }
+}
+
+.tile-wrapper {
+  @include flexbox(space-between, center);
+
+  .tile {
+    flex: 1;
+  }
+
+  .tile__icon {
+    align-self: flex-start;
+  }
+
+  .tile__content {
+    margin-right: 16px;
+  }
+
+  + .tile-wrapper {
+    margin-top: 24px;
+  }
+
+  &--box {
+    padding: 24px 40px 24px 24px;
+    border-radius: 8px;
+    background-color: $color-gray-300;
+  }
+}

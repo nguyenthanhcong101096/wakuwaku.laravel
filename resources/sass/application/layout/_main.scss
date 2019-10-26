@@ -1,0 +1,10 @@
+.main {
+  padding-bottom: 58px;
+  min-height: calc(100vh - 58px);
+
+  @include respond-from(md) {
+    padding-bottom: 0;
+    padding-top: 56px;
+    min-height: calc(100vh - 209px);
+  }
+}

@@ -1,0 +1,25 @@
+.headline {
+  &--xl { // Heading 900
+    @include font-headline--xl();
+  }
+
+  &--lg { // Heading 800
+    @include font-headline--lg();
+  }
+
+  &--md { // Heading 700
+    @include font-headline--md();
+  }
+
+  &--sm { // Heading 600
+    @include font-headline--sm();
+  }
+
+  &--xs { // Heading 500
+    @include font-headline--xs();
+  }
+
+  &--xxs { // Heading 400
+    @include font-headline--xxs();
+  }
+}

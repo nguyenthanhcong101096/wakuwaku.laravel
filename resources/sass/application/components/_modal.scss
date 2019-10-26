@@ -1,0 +1,48 @@
+.modal-wrapper {
+  @include flexbox(center, center);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(51, 51, 51, 0.4);
+  z-index: 200;
+  display: none;
+
+  &.active {
+    @include flexbox(center, center);
+  }
+}
+
+.modal-cropper {
+  padding: 16px;
+
+  .modal {
+    width: 100%;
+    max-width: 625px;
+  }
+}
+
+.modal {
+  border-radius: 4px;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .1);
+  background-color: $color-gray-100;
+
+  &__head {
+    @include flexbox(space-between, center);
+    padding: 16px;
+    margin-bottom: 8px;
+    border-bottom: 1px solid $color-gray-400;
+  }
+
+  &__body {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  &__footer {
+    text-align: right;
+    padding: 16px;
+    border-top: 1px solid $color-gray-400;
+  }
+}

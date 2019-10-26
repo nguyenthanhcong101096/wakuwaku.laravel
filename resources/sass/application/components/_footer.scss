@@ -1,0 +1,27 @@
+.footer {
+  @include list-group-horizontal('&__link', 24px);
+  background-color: $color-gray-300;
+  display: none;
+  padding: 40px 0;
+  text-align: center;
+
+  @include respond-from(md) {
+    display: block;
+  }
+
+  a {
+    display: block;
+  }
+
+  &__logo {
+    margin-bottom: 24px;
+  }
+
+  &__links + &__links {
+    margin-top: 24px;
+  }
+
+  &__link {
+    @include font-format(14px, 600, 1.43, normal);
+  }
+}

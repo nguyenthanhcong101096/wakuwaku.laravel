@@ -1,0 +1,64 @@
+.comments {
+  @include list-group-vertical('.comment', 16px);
+
+  &__action {
+    @include flexbox(space-between, flex-start);
+    margin-top: 4px;
+    margin-bottom: 24px;
+  }
+}
+
+.comment {
+  &__content {
+    border-radius: 4px;
+    background-color: $color-gray-300;
+    padding: 8px;
+    flex: 2;
+    position: relative;
+  }
+
+  &__action {
+    @include background-svg('<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fill="#1F2833" fill-rule="evenodd" d="M8 12a1.333 1.333 0 1 1 0 2.667A1.333 1.333 0 0 1 8 12zm0-5.333a1.333 1.333 0 1 1 0 2.666 1.333 1.333 0 0 1 0-2.666zm0-5.334A1.333 1.333 0 1 1 8 4a1.333 1.333 0 0 1 0-2.667z"/></svg>');
+    background-size: 16px;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    top: 4px;
+    right: 0;
+    cursor: pointer;
+
+    &.is-active .comment__dropdown {
+      display: block;
+    }
+  }
+
+  &__dropdown {
+    width: 82px;
+    border-radius: 8px;
+    padding: 8px 0;
+    box-shadow: 0 1px 4px 0 rgba($color-black, .1);
+    background-color: $color-gray-100;
+    position: absolute;
+    top: 100%;
+    right: calc(100% - 8px);
+    display: none;
+    z-index: 20;
+
+    li {
+      @include flexbox(flex-start, center);
+      @include font-sm();
+      padding: 8px;
+      cursor: pointer;
+
+      &:hover {
+        background-color: $color-gray-300;
+      }
+
+      svg {
+        margin-right: 4px;
+      }
+    }
+  }
+}

@@ -1,0 +1,75 @@
+.row {
+  @include flexbox(flex-start, stretch);
+  flex-wrap: wrap;
+  margin-left: -$grid-gutter / 2;
+  margin-right: -$grid-gutter / 2;
+
+  [class^=col-] {
+    padding-right: $grid-gutter / 2;
+    padding-left: $grid-gutter / 2;
+    width: 100%;
+  }
+
+  @each $breakpoint-key in map-keys($breakpoints) {
+    $breakpoint-value: map-get($breakpoints, $breakpoint-key);
+    $infix: if($breakpoint-value == 0, '', '-#{$breakpoint-key}');
+
+    @include respond-from($breakpoint-key) {
+      @for $i from 1 through $grid-columns {
+        .col#{$infix}-#{$i} {
+          flex: 0 0 percentage($i / $grid-columns);
+          // Apply to IE10+ and Firefox
+          max-width: percentage($i / $grid-columns);
+        }
+
+        .order#{$infix}-#{$i} {
+          order: $i;
+        }
+      }
+
+      .order#{$infix}-first {
+        order: -1;
+      }
+
+      .order#{$infix}-last {
+        order: $grid-columns + 1;
+      }
+
+      // $grid-columns - 1: avoid offset-12
+      @for $i from 0 through ($grid-columns - 1) {
+        @if not ($infix == '' and $i == 0) {
+          $margin-ratio: $i / $grid-columns;
+          .offset#{$infix}-#{$i} {
+            margin-left: if($margin-ratio == 0, 0, percentage($margin-ratio));
+          }
+        }
+      }
+    }
+  }
+}
+
+.row-sparse {
+  & > [class^=col-] + [class^=col-] {
+    margin-top: 32px;
+  }
+
+  &--sm > [class^=col-] + [class^=col-] {
+    margin-top: 16px;
+  }
+
+  &.row-sparse-not-tb {
+    @include respond-only(md) {
+      & > [class^=col-] + [class^=col-] {
+        margin-top: 0;
+      }
+    }
+  }
+
+  &.row-sparse-not-pc {
+    @include respond-from(lg) {
+      & > [class^=col-] + [class^=col-] {
+        margin-top: 0;
+      }
+    }
+  }
+}
