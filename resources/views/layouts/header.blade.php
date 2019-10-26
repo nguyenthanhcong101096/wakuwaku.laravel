@@ -2,7 +2,7 @@
   <div class="container">
     <div class="navbar js-navbar">
       <div class="navbar__expanded js-navbar-expanded">
-        <a href="" class="navbar__brand">@svg('new/img_logo-waku-news')</a>
+        <a href="/" class="navbar__brand">@svg('new/img_logo-waku-news')</a>
         <div class="navbar__collapse js-navbar-collapse" role="button" aria-label="Display Menu"></div>
         <ul class="navbar-list">
           <li class="navbar-list__item"><a href="">Recap</a></li>
@@ -119,7 +119,7 @@
             </button>
             <div class="dropdown__body">
               <div class="u-d-flex">
-                <a href="" class="btn btn--red u-w-full"> Login </a>
+                <a href="/login" class="btn btn--red u-w-full"> Login </a>
                 <div class="select-locale-wrap js-locale-selector u-ml-16" data-flag="<%= I18n.locale %>">
                 <select class="btn btn--default is-rounded select-locale">
                   {{-- <%= options_for_select(language_switcher_options, url_for(locale: I18n.locale)) %> --}}
