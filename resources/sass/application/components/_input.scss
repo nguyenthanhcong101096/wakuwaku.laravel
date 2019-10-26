@@ -137,7 +137,7 @@ select {
 
   @each $locale in 'vi', 'en', 'ja' {
     &[data-flag='#{$locale}']:after {
-      // background-image: url('../images/new/ico_flag-#{$locale}.svg');
+      background-image: url('../images/new/ico_flag-#{$locale}.svg');
     }
   }
 }

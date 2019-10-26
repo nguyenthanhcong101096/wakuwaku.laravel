@@ -20,8 +20,8 @@ import { onScrollPostPage } from './post_view'
 import { onClickBtnCloseToast } from '../common/common'
 
 // Config lib's default options
-axios.defaults.headers.common['X-CSRF-Token'] = document.querySelector('meta[name=csrf-token]').getAttribute('content')
-axios.defaults.headers.common['Accept'] = 'application/json'
+// axios.defaults.headers.common['X-CSRF-Token'] = document.querySelector('meta[name=csrf-token]').getAttribute('content')
+// axios.defaults.headers.common['Accept'] = 'application/json'
 
 Rails.start()
 

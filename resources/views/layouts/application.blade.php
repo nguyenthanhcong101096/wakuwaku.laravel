@@ -6,6 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="{{ mix('css/application.css') }}">
   <title>@yield('title')</title>
+  @csrf
 </head>
 <body>
   @include('layouts.header')

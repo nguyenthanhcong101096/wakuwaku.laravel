@@ -41699,9 +41699,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
  // Config lib's default options
+// axios.defaults.headers.common['X-CSRF-Token'] = document.querySelector('meta[name=csrf-token]').getAttribute('content')
+// axios.defaults.headers.common['Accept'] = 'application/json'
 
-axios__WEBPACK_IMPORTED_MODULE_1___default.a.defaults.headers.common['X-CSRF-Token'] = document.querySelector('meta[name=csrf-token]').getAttribute('content');
-axios__WEBPACK_IMPORTED_MODULE_1___default.a.defaults.headers.common['Accept'] = 'application/json';
 rails_ujs__WEBPACK_IMPORTED_MODULE_0___default.a.start();
 window.addEventListener('DOMContentLoaded', function () {
   window.clickType = document.ontouchstart !== null ? 'click' : 'touchstart';

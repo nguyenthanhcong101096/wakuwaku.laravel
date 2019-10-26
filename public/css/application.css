@@ -2589,6 +2589,18 @@ select {
   left: 12px;
 }
 
+.select-locale-wrap[data-flag=vi]:after {
+  background-image: url(/images/ico_flag-vi.svg?a46ddc7551ef1e45ef18c3b0e11f458b);
+}
+
+.select-locale-wrap[data-flag=en]:after {
+  background-image: url(/images/ico_flag-en.svg?50bcb7c25f9cc661bfe630449985971f);
+}
+
+.select-locale-wrap[data-flag=ja]:after {
+  background-image: url(/images/ico_flag-ja.svg?c9b3c61093beede8b83d2bcb07c9df4d);
+}
+
 .select-locale {
   width: 40px;
   height: 40px;
