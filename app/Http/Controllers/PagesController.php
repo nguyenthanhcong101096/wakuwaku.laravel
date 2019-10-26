@@ -5,13 +5,12 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use App\Http\Models\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PagesController extends Controller
 {
   public function index(){
-    $posts = Post::get();
-    $post = $posts->find(1)->getName();
-    dd($post);
+    dd(Auth::user()->avatar_data);
     return view('pages.index');
   }
 }

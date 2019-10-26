@@ -37,43 +37,34 @@
 
         @if(auth()->check())
           <div class="navbar-action__item dropdown dropdown--notification notification js-dropdown js-dropdown-notification u-hidden-mb">
-            <%= inline_svg 'new/ico_noti.svg', size: '24px', class: 'u-vertical-middle js-dropdown-trigger noti-icon' %>
-            <% count = current_user.count_notification %>
-            <span class="<%= count > 0 ? 'noti-badge' : 'hidden' %> js-count-notification"></span>
+            @svg('new/ico_noti', ['class'=>'u-vertical-middle js-dropdown-trigger noti-icon', 'width'=>'24px', 'height'=>'24px'])
+            <span class="noti-badge js-count-notification"></span>
             <div class="dropdown__body">
-              <h3 class="dropdown__lead headline--sm u-text-center"><%= t('.notification') %></h3>
+              <h3 class="dropdown__lead headline--sm u-text-center">Notification</h3>
               <div class="dropdown__body-inner">
-                <% if current_user.size_notifications.zero? %>
-                  <p class="u-mt-8 u-ml-4">No notification</p>
-                  <% else %>
-                  <ul class="notification-list js-list-notification" data-notification="notification-member">
-                    <%= render_li_notifications(current_user, { member: true }) %>
-                  </ul>
-                <% end %>
+                <p class="u-mt-8 u-ml-4">No notification</p>
               </div>
-              <%= link_to('See all', notification_me_path, class: 'dropdown--notification__action u-text-notice u-text-sm') unless current_user.size_notifications.zero? %>
+               <a class="dropdown--notification__action u-text-notice u-text-sm">See All</a>
             </div>
           </div>
-          <%= link_to(notification_me_path, class: 'navbar-action__item notification u-hidden-pc', 'aria-label': 'Search Page') do %>
-            <%= inline_svg 'new/ico_noti.svg', size: '24px', class: 'u-vertical-middle js-dropdown-trigger noti-icon' %>
-              <% count = current_user.count_notification %>
-            <span class="<%= count > 0 ? 'noti-badge' : 'hidden' %> js-count-notification"></span>
-          <% end %>
+          <a href="" class="navbar-action__item notification u-hidden-pc">
+            @svg('new/ico_noti', ['class'=>'u-vertical-middle js-dropdown-trigger noti-icon', 'width'=>'24px', 'height'=>'24px'])
+            <span class="noti-badge js-count-notification"></span>
+          </a>
         @endif
 
         <div class="navbar-action__item dropdown dropdown--menu js-dropdown">
           @if(auth()->check())
             <div class="tile tile--xs">
-            <img src="{{auth()->avatar_url}}" alt="avatar" class="tile__icon js-dropdown-trigger">
+            <img src="{{auth()->user()->avatar}}" alt="avatar" class="tile__icon js-dropdown-trigger">
             </div>
             <div class="dropdown__body">
               <div class="tile-wrapper u-mb-8">
-                <%= link_to user_path do %>
-                <a href="">
+                <a href="/me">
                   <div class="tile tile--sm tile--horizontal">
-                    <img src="{{auth()->avatar_url}}" alt="avatar" class="tile__icon">
+                    <img src="{{auth()->user()->avatar_url}}" alt="avatar" class="tile__icon">
                     <div class="tile__content">
-                      <h3 class="tile__title">{{auth()->name}}</h3>
+                      <h3 class="tile__title">{{auth()->user()->name}}</h3>
                       <p class="u-text-sm u-text-red-500">Profile</p>
                     </div>
                   </div>
@@ -87,29 +78,29 @@
               </div>
               <ul class="dropdown-list">
                 <li class="dropdown-list__item">
-                  <%= link_to following_me_path do %>
-                    <%= inline_svg 'new/ico_person-check_bordered.svg', size: '24px', class: 'u-vertical-middle' %><%= t('.following') %>
-                  <% end %>
+                  <a href="">
+                    @svg('new/ico_person-check_bordered', ['class'=>'u-vertical-middle', 'width'=>'24px', 'height'=>'24px'])Follow
+                  </a>
                 </li>
                 <li class="dropdown-list__item">
-                  <%= link_to bookmarks_me_path do %>
-                    <%= inline_svg 'new/ico_bookmark.svg', size: '24px', class: 'u-vertical-middle' %><%= t('.bookmarks') %>
-                  <% end %>
+                  <a href="">
+                    @svg('new/ico_bookmark', ['class'=>'u-vertical-middle', 'width'=>'24px', 'height'=>'24px'])Bookmarks
+                  </a>
                 </li>
                 <li class="dropdown-list__item <%= 'u-hidden' if current_user.member? %>">
-                  <%= link_to writer_root_path do %>
-                    <%= inline_svg 'new/ico_pen.svg', size: '24px', class: 'u-vertical-middle' %><%= t('.writer_dashboard') %>
-                  <% end %>
+                  <a href="">
+                    @svg('new/ico_pen', ['class'=>'u-vertical-middle', 'width'=>'24px', 'height'=>'24px'])Writer Dashboard
+                  </a>
                 </li>
                 <li class="dropdown-list__item <%= 'u-hidden' if current_user.writer? %>">
-                  <%= link_to writers_apply_path do %>
-                    <%= inline_svg 'new/ico_pen.svg', size: '24px', class: 'u-vertical-middle' %><%= t('.writer_apply') %>
-                  <% end %>
+                  <a href="">
+                    @svg('new/ico_pen', ['class'=>'u-vertical-middle', 'width'=>'24px', 'height'=>'24px'])Writer Apply
+                  </a>
                 </li>
                 <li class="dropdown-list__item">
-                  <%= link_to signout_path, data: { method: :delete } do %>
-                    <%= inline_svg 'new/ico_logout.svg', size: '24px', class: 'u-vertical-middle' %><%= t('.logout') %>
-                  <% end %>
+                  <a href="">
+                    @svg('new/ico_logout', ['class'=>'u-vertical-middle', 'width'=>'24px', 'height'=>'24px'])Logout
+                  </a>
                 </li>
               </ul>
             </div>
