@@ -24,15 +24,15 @@
     <div class="container container-fluid">
       <div class="row row-sparse row-sparse-not-pc">
         <div class="col-md-12 col-lg-6">
-          <%= render partial: 'posts/post', locals: { post: @presenter.random_advertisings.sample, klass: 'card--xl' } %>
+          @include('shared.post', ['post'=>$posts->first(), 'klass'=>'card--xl', 'horizontal'=>true])
         </div>
         <div class="col-lg-6">
           <div class="row card-group card-group--mainvisual equal-height">
-            <% @presenter.latest_four_posts.each do |post| %>
+            @foreach($posts->limit(4)->get() as $post)
               <div class="col-md-6 card-group__item">
-                <%= render partial: 'posts/post', locals: { post: post, klass: 'card--md' } %>
+                @include('shared.post', ['post'=>$post, 'klass'=>'card--md'])
               </div>
-            <% end %>
+            @endforeach
           </div>
         </div>
       </div>

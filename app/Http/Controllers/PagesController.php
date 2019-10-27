@@ -19,9 +19,8 @@ class PagesController extends Controller
   public function index(){
     // $user = User::first()->decorator(UserDecorator::class);
     // $users=User::all()->decorator(UserDecorator::class);
-    $posts = Post::all();
-    $post_query=$posts->queries(PostQuery::class);
-    dd($post_query->first());
+    // $posts = Post::all();
+    // $post_query=$posts->queries(PostQuery::class);
     $posts=Post::withPostTranslation('ja');
     return view('pages.index', ['posts'=>$posts]);
   }
