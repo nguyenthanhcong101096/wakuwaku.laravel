@@ -56,13 +56,13 @@
         <div class="navbar-action__item dropdown dropdown--menu js-dropdown">
           @if(auth()->check())
             <div class="tile tile--xs">
-            <img src="{{auth()->user()->avatar}}" alt="avatar" class="tile__icon js-dropdown-trigger">
+            <img src="https://znews-photo.zadn.vn/w660/Uploaded/kcwvouvs/2017_08_15/16906791_757431121087511_3403161025392934912_n_1.jpg" alt="avatar" class="tile__icon js-dropdown-trigger">
             </div>
             <div class="dropdown__body">
               <div class="tile-wrapper u-mb-8">
                 <a href="/me">
                   <div class="tile tile--sm tile--horizontal">
-                    <img src="{{auth()->user()->avatar_url}}" alt="avatar" class="tile__icon">
+                    <img src="https://znews-photo.zadn.vn/w660/Uploaded/kcwvouvs/2017_08_15/16906791_757431121087511_3403161025392934912_n_1.jpg" alt="avatar" class="tile__icon">
                     <div class="tile__content">
                       <h3 class="tile__title">{{auth()->user()->name}}</h3>
                       <p class="u-text-sm u-text-red-500">Profile</p>

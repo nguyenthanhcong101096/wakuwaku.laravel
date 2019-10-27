@@ -6,7 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
 {
-    public function getName(){
-        return $this->category;
+    public function postable(){
+        return $this->morphTo();
+    }
+
+    public function authorName(){
+        return $this->postable->name;
     }
 }
