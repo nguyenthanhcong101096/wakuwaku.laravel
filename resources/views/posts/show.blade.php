@@ -87,7 +87,7 @@
     <div class="section--divider"></div>
   </div>
 
-  @include('posts.comments', ['post'=>$post, 'comments'=>$post->comments])
+  @include('posts.comments', ['post'=>$post, 'comments'=>$post->comments->take(5)])
 
   <div class="container">
     <div class="section--divider"></div>
