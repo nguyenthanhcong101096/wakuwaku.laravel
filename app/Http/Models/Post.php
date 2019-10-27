@@ -10,7 +10,15 @@ class Post extends Model
         return $this->morphTo();
     }
 
+    public function comments(){
+        return $this->morphMany(Comment::class, 'commentable');
+    }
+
     public function authorName(){
         return $this->postable->name;
+    }
+
+    public function post_translations(){
+        return $this->hasMany(PostTranslation::class);
     }
 }

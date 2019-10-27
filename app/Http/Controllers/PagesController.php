@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use App\Http\Models\Post;
 use App\Http\Models\User;
+use App\Http\Models\Comment;
+use App\Http\Models\PostTranslation;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Decorators\UserDecorator;
