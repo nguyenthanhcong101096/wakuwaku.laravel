@@ -11,7 +11,7 @@ class TagTranslation extends Model
         return $this->belongsTo(Tag::class);
     }
 
-    public function scopeWithLocale($query, $locale){
+    public function scopeWithLocale($query, $locale=null){
         $arr_locales = array_flip(config('app.locales'));
         if(is_array($locale) || in_array($locale, $arr_locales)){
             return $query->where('locale', $locale);

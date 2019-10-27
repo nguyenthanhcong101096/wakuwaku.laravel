@@ -17,4 +17,12 @@ class Tag extends Model
     public function posts(){
         return $this->hasManyThrough(Post::class, Tagging::class, 'post_id', 'id');
     }
+
+    public function scopeWithTranslation($query, $locale='en'){
+        $subs = TagTranslation::withLocale($locale);
+        $tags = $query->joinSub($subs, 'tag_translations', function($join){ $join->on('tags.id', '=', 'tag_translations.id');})
+                ->select('tags.*', 'tag_translations.name as tagName')
+                ->get();
+        return $tags;
+    }
 }

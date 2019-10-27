@@ -18,8 +18,9 @@ class PagesController extends Controller
   public function index(){
     // $user = User::first()->decorator(UserDecorator::class);
     // $users=User::all()->decorator(UserDecorator::class);
-    $tag= TagTranslation::withLocale('en');
-    dd($tag->first()->name);
+    $tag= Tag::withTranslation("locale='en'")->first();
+    $translations = PostTranslation::withLocale('vi');
+    dd($translations->first()->locale);
     return view('pages.index', ['posts'=>$posts]);
   }
 
