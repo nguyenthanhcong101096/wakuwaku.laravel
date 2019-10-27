@@ -13,8 +13,7 @@
     <div class="card__action">
       <ul class="list--inline">
         <li class="card__author">
-          <a>{{$post->authorName()}}</a>
-          {{-- <%= link_to post.postable_name, writer_path(post.postable_username) %> --}}
+          <a>{{hello('nguyen thanh cong')}}</a>
         </li>
         <li>
           <span class="card__like">{{$post->likes_count}}</span>
