@@ -48,9 +48,9 @@
                 <img class="u-mt-32 lazy" data-src="{{ asset('images/new/ads/ads2.png') }}" alt="advertise">
               </figure>
               <div class="tag u-mt-32">
-                {{-- <% @tags.each do |tag| %>
-                  <%= link_to tag.name , tag_path(tag), class: 'tag__item' %>
-                <% end %> --}}
+                @foreach($tags as $tag)
+                  <a class="tag__item">{{$tag->tagName}}</a>
+                @endforeach
               </div>
               <div class="post-btn">
                 <div class="btn-group btn-group--md">

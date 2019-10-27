@@ -18,7 +18,7 @@ class Tag extends Model
         return $this->hasManyThrough(Post::class, Tagging::class, 'post_id', 'id');
     }
 
-    public function scopeWithTranslation($query, $locale='en'){
+    public function scopeWithTranslation($query, $locale=null){
         $subs = TagTranslation::withLocale($locale);
         $tags = $query->joinSub($subs, 'tag_translations', function($join){ $join->on('tags.id', '=', 'tag_translations.tag_id');})
                       ->select('tags.*', 'tag_translations.name as tagName');
