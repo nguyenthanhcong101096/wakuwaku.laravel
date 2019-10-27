@@ -21,4 +21,12 @@ class Post extends Model
     public function post_translations(){
         return $this->hasMany(PostTranslation::class);
     }
+
+    public function taggings(){
+        return $this->hasMany(Tagging::class);
+    }
+
+    public function tags(){
+        return $this->hasManyThrough(Tag::class, Tagging::class);
+    }
 }
