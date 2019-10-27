@@ -12,16 +12,16 @@ use App\Http\Models\PostTranslation;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Decorators\UserDecorator;
+use App\Http\Queries\PostQuery;
 
 class PagesController extends Controller
 {
   public function index(){
     // $user = User::first()->decorator(UserDecorator::class);
     // $users=User::all()->decorator(UserDecorator::class);
-    $tag= Tag::withTranslation("locale='en'")->first();
-    $translations = PostTranslation::withLocale('vi');
+    // $query = Post::cong(PostQuery::class);
+
     $posts=Post::withPostTranslation('ja');
-    dd($posts->pluck('title'));
     return view('pages.index', ['posts'=>$posts]);
   }
 

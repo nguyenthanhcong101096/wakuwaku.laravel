@@ -177,6 +177,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         App\Providers\DecoratorsProvider::class,
         App\Providers\HelpersServiceProvider::class,
+        App\Providers\QueryServiceProvider::class,
     ],
 
     /*
