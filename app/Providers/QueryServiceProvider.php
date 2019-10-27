@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Collection;
 
 class QueryServiceProvider extends ServiceProvider
 {
@@ -24,8 +25,8 @@ class QueryServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        Builder::macro('cong', function ($class){
-            return new $class($this->model);
+        Collection::macro('queries', function($class){
+            return new $class($this);
         });
     }
 }
