@@ -24,11 +24,11 @@
     <div class="container container-fluid">
       <div class="row row-sparse row-sparse-not-pc">
         <div class="col-md-12 col-lg-6">
-          @include('shared.post', ['post'=>$posts->first(), 'klass'=>'card--xl', 'horizontal'=>true])
+          @include('shared.post', ['post'=>$presenter->randomAdvertisings()->first(), 'klass'=>'card--xl', 'horizontal'=>true])
         </div>
         <div class="col-lg-6">
           <div class="row card-group card-group--mainvisual equal-height">
-            @foreach($posts->limit(4)->get() as $post)
+            @foreach($presenter->latestFourPosts() as $post)
               <div class="col-md-6 card-group__item">
                 @include('shared.post', ['post'=>$post, 'klass'=>'card--md'])
               </div>
@@ -39,21 +39,21 @@
     </div>
   </div>
 
- {{-- <div class="section--lg">
+  <div class="section--lg">
     <div class="container">
       <div class="section-headline">
-        <h2 class="headline--md"><%= t('.area_info') %></h2>
+        <h2 class="headline--md">Area Information</h2>
       </div>
       <div class="row card-group card-group--area-information equal-height">
-        <% @presenter.four_area_information.each do |post| %>
+        @foreach($presenter->fourAreaInformation() as $post)
           <div class="col-md-6 col-lg-3 card-group__item">
-            <%= render partial: 'posts/post', locals: { post: post, klass: 'card--md' } %>
+            @include('shared.post', ['post'=>$post, 'klass'=>'card--md'])
           </div>
-        <% end %>
+        @endforeach
       </div>
     </div>
   </div>
-
+{{--
   <div class="section--lg">
     <div class="container">
       <div class="row row-sparse row-sparse-not-pc">

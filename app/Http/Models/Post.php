@@ -32,4 +32,19 @@ class Post extends Model
                 ->select('posts.*', 'post_translations.title', 'post_translations.description', 'post_translations.content', 'post_translations.locale', 'post_translations.status', 'post_translations.count_submit');
         return $posts;
     }
+
+    public function scopeWithCategory($query, $cate){
+        return $query->where('category', $cate);
+    }
+
+    public function scopeWithNotCategory($query, $cate){
+        return $query->where('category','<>', $cate);
+    }
+
+    public function scopeWithArea($query, $locale=null){
+        $translations = PostTranslation::withLocale($locale);
+        $query = $query->joinSub(Tag::withKind('area', $locale), 'tags', function($join){ $join->on('posts.id', '=', 'tags.post_id');});
+        $query = $query->joinSub($translations, 'post_translations', function($join){ $join->on('posts.id', '=', 'post_translations.post_id');});
+        return $query;
+    }
 }
