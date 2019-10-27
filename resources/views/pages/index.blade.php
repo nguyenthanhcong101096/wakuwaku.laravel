@@ -24,7 +24,7 @@
     <div class="container container-fluid">
       <div class="row row-sparse row-sparse-not-pc">
         <div class="col-md-12 col-lg-6">
-          @include('shared.post', ['post'=>$presenter->randomAdvertisings()->first(), 'klass'=>'card--xl', 'horizontal'=>true])
+          @include('shared.post', ['post'=>$presenter->randomAdvertisings()->first(), 'klass'=>'card--xl'])
         </div>
         <div class="col-lg-6">
           <div class="row card-group card-group--mainvisual equal-height">

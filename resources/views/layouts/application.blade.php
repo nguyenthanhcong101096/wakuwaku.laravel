@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="{{ mix('css/application.css') }}">
   <title>@yield('title')</title>
   @csrf
+  @yield('head')
 </head>
 <body>
   @include('layouts.header')

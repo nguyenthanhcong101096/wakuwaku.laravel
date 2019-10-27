@@ -17,5 +17,13 @@ class User extends Authenticatable
   public function post_translations(){
     return $this->morphMany(PostTranslation::Class, 'authorable');    
   }
+
+  public function isComment($id){
+    return $this->comments->contains('id', $id);
+  }
+
+  public function isAuthor($post){
+    return $this->posts->contains($post);
+  }
 }
 

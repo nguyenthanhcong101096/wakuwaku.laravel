@@ -1,5 +1,5 @@
 @php
-  $class_horizontal = isset($usersType) ? 'card--horizonal' : '';
+  $class_horizontal = isset($horizontal) ? 'card--horizonal' : '';
   $class_options    = $klass ?? $klass;
 @endphp
 
@@ -13,7 +13,7 @@
         <span>{{$post->category}}</span>
         <span>10/10/2019</span>
       </div>
-      <a href="" class="card__title">{{$post->title}}</a>
+      <a href="" class="card__title">{!!$post->title!!}</a>
     </div>
     <div class="card__action">
       <ul class="list--inline">

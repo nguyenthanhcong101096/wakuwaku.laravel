@@ -22,7 +22,7 @@ class SessionsController extends Controller
   }
 
   public function dangnhap(){
-    $user = User::first();
+    $user = User::find(1);
     Auth::guard('web')->login($user);
     return redirect('/');
   }
