@@ -20,7 +20,8 @@ class PagesController extends Controller
     // $users=User::all()->decorator(UserDecorator::class);
     $tag= Tag::withTranslation("locale='en'")->first();
     $translations = PostTranslation::withLocale('vi');
-    dd($translations->first()->locale);
+    $posts=Post::withPostTranslation('ja');
+    dd($posts->pluck('title'));
     return view('pages.index', ['posts'=>$posts]);
   }
 
