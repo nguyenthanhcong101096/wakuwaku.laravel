@@ -21,7 +21,7 @@ class Tag extends Model
     public function scopeWithTranslation($query, $locale='en'){
         $subs = TagTranslation::withLocale($locale);
         $tags = $query->joinSub($subs, 'tag_translations', function($join){ $join->on('tags.id', '=', 'tag_translations.tag_id');})
-                ->select('tags.*', 'tag_translations.name as tagName');
+                      ->select('tags.*', 'tag_translations.name as tagName');
         return $tags;
     }
 
