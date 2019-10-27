@@ -15,6 +15,6 @@ class Tag extends Model
     }
 
     public function posts(){
-        return $this->hasManyThrough(Post::class, Tagging::class);
+        return $this->hasManyThrough(Post::class, Tagging::class, 'post_id', 'id');
     }
 }

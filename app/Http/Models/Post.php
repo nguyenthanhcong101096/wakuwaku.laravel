@@ -14,10 +14,6 @@ class Post extends Model
         return $this->morphMany(Comment::class, 'commentable');
     }
 
-    public function authorName(){
-        return $this->postable->name;
-    }
-
     public function post_translations(){
         return $this->hasMany(PostTranslation::class);
     }
@@ -27,6 +23,6 @@ class Post extends Model
     }
 
     public function tags(){
-        return $this->hasManyThrough(Tag::class, Tagging::class);
+        return $this->hasManyThrough(Tag::class, Tagging::class, 'tag_id', 'id');
     }
 }
