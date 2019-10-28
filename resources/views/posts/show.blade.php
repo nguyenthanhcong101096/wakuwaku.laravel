@@ -72,7 +72,7 @@
                       <p>Đá hỏng 2 quả 11 m, MU vẫn thắng Norwich 3-1</p>
                     </div>
                   </div>
-                  {{button_follow($post->postable)}}
+                  {{buttonFollow($post->postable)}}
                 </div>
             </div>
           </div>

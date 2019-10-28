@@ -1,6 +1,6 @@
 <?php
 
-function button_follow($writer, $klass=null){
+function buttonFollow($writer, $klass=null){
   $mySelf = $writer != currentUser();
 
   if($mySelf){
@@ -10,4 +10,8 @@ function button_follow($writer, $klass=null){
       return Form::button('Follow',['class'=>'btn btn--red btn-follow js-btn-follow '.$klass, 'data-writer-id'=>$writer->id]);
     }
   }
+}
+
+function socialShare(){
+
 }
