@@ -26,8 +26,8 @@ class User extends Authenticatable
     return $this->hasManyThrough(User::class, Follow::class, 'target_user_id', 'id','id','user_id')->get();
   }
 
-  public function isComment($id){
-    return $this->comments->contains('id', $id);
+  public function isComment($comment){
+    return $this->comments->contains($comment);
   }
 
   public function isAuthor($post){

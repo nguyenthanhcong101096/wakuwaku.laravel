@@ -4,17 +4,17 @@
       <img alt="user avatar" class="lazy tile__icon" data-src="https://znews-photo.zadn.vn/w660/Uploaded/kcwvouvs/2017_08_15/16906791_757431121087511_3403161025392934912_n_1.jpg">
     </figure>
     <div class="tile__content comment__content">
-      @if(userSignIn())
+      @auth
       <div class="comment__action js-comment-action">
         <ul class="comment__dropdown">
-          @if(currentUser()->isComment($comment->id))
+          @if(currentUser()->isComment($comment))
           <li class="js-comment-delete" data-comment-id="{{ $comment->id }}">@svg('new/ico_delete', ['width'=>'16px', 'height'=>'16px', 'color'=>'#3b599'])Delete</li>
           @else
           <li data-comment-id="{{$comment->id}}">@svg('new/ico_report', ['width'=>'16px', 'height'=>'16px', 'color'=>'#3b5997'])Report</li>
           @endif
         </ul>
       </div>
-      @endif
+      @endauth
       <p class="tile__title comment__title">
       <span>{{$comment->userable->name}}</span>
       <span class="u-text-tertiary u-d-inline-block">10/10/2019</span>

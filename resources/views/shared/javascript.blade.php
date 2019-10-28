@@ -1,8 +1,8 @@
 <script>
   window.__INIT_DATA__ = {
     I18n: null,
-    @if(userSignIn())
+    @auth
       currentUser: {{currentUser()->id}}
-    @endif
+    @endauth
   }
 </script>
