@@ -34,8 +34,8 @@ class User extends Authenticatable
     return $this->posts->contains($post);
   }
 
-  // public function isFollow($writer_id){
-  //   return $this->follow
-  // }
+  public function isFollow($writer){
+    return $this->following()->contains($writer);
+  }
 }
 

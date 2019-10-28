@@ -8,5 +8,5 @@ export const onChangeLocale = () => {
 }
 
 export const isUserSignedIn = () => {
-  return window.__INIT_DATA__.currentUser ? true : (() => { window.location.href = `${window.location.origin}/signin` })()
+  return window.__INIT_DATA__.currentUser ? true : (() => { window.location.href = `${window.location.origin}/login` })()
 }

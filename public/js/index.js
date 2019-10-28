@@ -41401,7 +41401,7 @@ var onChangeLocale = function onChangeLocale() {
 };
 var isUserSignedIn = function isUserSignedIn() {
   return window.__INIT_DATA__.currentUser ? true : function () {
-    window.location.href = "".concat(window.location.origin, "/signin");
+    window.location.href = "".concat(window.location.origin, "/login");
   }();
 };
 

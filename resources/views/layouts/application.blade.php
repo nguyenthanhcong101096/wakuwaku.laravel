@@ -13,6 +13,7 @@
   @include('layouts.header')
   @yield('body')
   @include('layouts.footer')
+  @include('shared.javascript')
   <script src="{{ mix('/js/index.js') }}"></script>
 </body>
 </html>

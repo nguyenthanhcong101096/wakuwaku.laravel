@@ -64,19 +64,16 @@
                   {{-- <%= social_share(@post, '20px', 'btn-group__item') %> --}}
                 </div>
               </div>
-              @if(auth()->user()->isAuthor($post))
                 <div class="tile-wrapper tile-wrapper--box">
                   <div class="tile tile--sm tile--horizontal">
                     <a><figure><img class="tile__icon" src="https://znews-photo.zadn.vn/w660/Uploaded/kcwvouvs/2017_08_15/16906791_757431121087511_3403161025392934912_n_1.jpg"></figure></a>
                     <div class="tile__content">
                       <p class="tile__title">{{$post->postable->name}}</p>
                       <p>Đá hỏng 2 quả 11 m, MU vẫn thắng Norwich 3-1</p>
-                      {{button_follow()}}
                     </div>
                   </div>
-                  {{-- <%= btn_follow(@post.postable_id) unless current_user&.id == @post.postable_id %> --}}
+                  {{button_follow($post->postable)}}
                 </div>
-              @endif
             </div>
           </div>
         </div>
