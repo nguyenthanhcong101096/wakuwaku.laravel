@@ -71,6 +71,7 @@
                     <div class="tile__content">
                       <p class="tile__title">{{$post->postable->name}}</p>
                       <p>Đá hỏng 2 quả 11 m, MU vẫn thắng Norwich 3-1</p>
+                      {{button_follow()}}
                     </div>
                   </div>
                   {{-- <%= btn_follow(@post.postable_id) unless current_user&.id == @post.postable_id %> --}}

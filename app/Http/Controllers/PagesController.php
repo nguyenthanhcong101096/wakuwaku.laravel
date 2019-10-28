@@ -8,6 +8,7 @@ use App\Http\Models\User;
 use App\Http\Models\Tag;
 use App\Http\Models\TagTranslation;
 use App\Http\Models\Comment;
+use App\Http\Models\Follow;
 use App\Http\Models\PostTranslation;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;

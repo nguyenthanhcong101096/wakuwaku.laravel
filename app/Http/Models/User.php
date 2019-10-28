@@ -18,6 +18,14 @@ class User extends Authenticatable
     return $this->morphMany(PostTranslation::Class, 'authorable');    
   }
 
+  public function following(){
+    return $this->hasManyThrough(User::class, Follow::class, 'user_id', 'id','id','target_user_id')->get();
+  }
+
+  public function followers(){
+    return $this->hasManyThrough(User::class, Follow::class, 'target_user_id', 'id','id','user_id')->get();
+  }
+
   public function isComment($id){
     return $this->comments->contains('id', $id);
   }
@@ -25,5 +33,9 @@ class User extends Authenticatable
   public function isAuthor($post){
     return $this->posts->contains($post);
   }
+
+  // public function isFollow($writer_id){
+  //   return $this->follow
+  // }
 }
 
